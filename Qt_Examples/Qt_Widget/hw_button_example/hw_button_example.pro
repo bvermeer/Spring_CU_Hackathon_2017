@@ -14,12 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    GPIO.cpp
+    minimal_gpio.cpp \
+    hw_button_polling.cpp
 
 HEADERS  += mainwindow.h \
-    GPIO.h \
     DebugDefines.h \
-    gpio_raspberrypi3.h
+    gpio_raspberrypi3.h \
+    minimal_gpio.h \
+    hw_button_polling.h
 
 FORMS    += mainwindow.ui
 

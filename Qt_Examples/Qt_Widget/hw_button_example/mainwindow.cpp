@@ -3,7 +3,8 @@
 
 #include "DebugDefines.h"
 #include "gpio_raspberrypi3.h"
-#include "GPIO.h"
+#include "hw_button_polling.h"
+#include <QTimer>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,24 +15,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
     myOut() << "Testing setting up and reading the GPIO";
 
-    GPIO gpioInst;
+    ui->button1_checkBox->setChecked(true);
 
-    if(!gpioInst.configureGPIO(GPIO_Pin15, GPIO_DIRECTION_INPUT, GPIO_PULLUP)) { myErr() << "config failed..."; }
+    hw_button_polling *buttonPoller = new hw_button_polling(this);
+
+    // Connection the button change signals to the UI symbols to change
+    connect(buttonPoller, SIGNAL(button_1_Changed(bool)), ui->button1_checkBox, SLOT(setChecked(bool)) );
+    connect(buttonPoller, SIGNAL(button_2_Changed(bool)), ui->button2_checkBox, SLOT(setChecked(bool)) );
+    connect(buttonPoller, SIGNAL(button_3_Changed(bool)), ui->button3_checkBox, SLOT(setChecked(bool)) );
+    connect(buttonPoller, SIGNAL(button_4_Changed(bool)), ui->button4_checkBox, SLOT(setChecked(bool)) );
 
 
-    bool pinState = false;
 
-    for( int i = 0; i < 30; i++)
-    {
-        if( !gpioInst.readGPIO(GPIO_Pin15, pinState) )
-        {
-            myErr() << "Error reading pin!";
-        }
-        else
-        {
-            myOut() << QString("Pin value: %1").arg(pinState);
-        }
-    }
+    // Poll the HW buttons every 100ms
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), buttonPoller, SLOT(checkButtons()) );
+    timer->start(100);
+
 
 }
 
