@@ -73,20 +73,21 @@
 #define PI_PUD_DOWN 1
 #define PI_PUD_UP   2
 
-static volatile uint32_t  *gpioReg = (uint32_t *)MAP_FAILED;
-static volatile uint32_t  *systReg = (uint32_t *)MAP_FAILED;
-static volatile uint32_t  *bscsReg = (uint32_t *)MAP_FAILED;
-
-static volatile uint32_t piModel = 1;
-
-static volatile uint32_t piPeriphBase = 0x20000000;
-static volatile uint32_t piBusAddr = 0x40000000;
 
 
 class minimal_gpio
 {
 
-   uint32_t * mapmem;
+    volatile uint32_t  *gpioReg = (uint32_t *)MAP_FAILED;
+    volatile uint32_t  *systReg = (uint32_t *)MAP_FAILED;
+    volatile uint32_t  *bscsReg = (uint32_t *)MAP_FAILED;
+
+    volatile uint32_t piModel = 1;
+
+    volatile uint32_t piPeriphBase = 0x20000000;
+    volatile uint32_t piBusAddr = 0x40000000;
+
+    uint32_t * mapmem;
 
 public:
     minimal_gpio();
