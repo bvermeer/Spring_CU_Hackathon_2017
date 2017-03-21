@@ -1,7 +1,7 @@
 #ifndef HW_BUTTON_POLLING_H
 #define HW_BUTTON_POLLING_H
 
-#include "minimal_gpio.h"
+#include "tiny_gpio.h"
 #include <QObject>
 #include <QMap>
 #include "DebugDefines.h"
@@ -10,7 +10,7 @@ class hw_button_polling : public QObject
 {
     Q_OBJECT
 
-    minimal_gpio gpio;
+    tiny_gpio gpio;
 
 public:
     hw_button_polling(QObject *parent = 0);

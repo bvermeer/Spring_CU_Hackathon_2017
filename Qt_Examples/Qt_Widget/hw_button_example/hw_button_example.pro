@@ -14,17 +14,17 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    minimal_gpio.cpp \
-    hw_button_polling.cpp
+    hw_button_polling.cpp \
+    tiny_gpio.cpp
 
 HEADERS  += mainwindow.h \
     DebugDefines.h \
     gpio_raspberrypi3.h \
-    minimal_gpio.h \
-    hw_button_polling.h
+    hw_button_polling.h \
+    tiny_gpio.h
 
 FORMS    += mainwindow.ui
 
 # Target install path
-target.path = /usr/bin
+target.path = /home/keysight/bin
 INSTALLS += target
