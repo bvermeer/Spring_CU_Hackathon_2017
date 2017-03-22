@@ -53,7 +53,7 @@
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Keysight Hackathon Dev Kit Getting Started} % Title
+\title{Keysight Hacking Platform Getting Started} % Title
 
 \author{Blake \textsc{Vermeer}} % Author name
 
@@ -80,7 +80,9 @@ Company: & Keysight Technologies % Company
 %----------------------------------------------------------------------------------------
 \section{Overview}
 
-The Keysight Hackathon Dev Kit consists of:
+The Keysight Hacking Platform is designed to have a development workflow similar to how firmware is developed in most Keysight products while yet at the same time being flexible enough that students can develop their own software / hardware for a Hackathon. \\
+
+The Keysight Hacking Platform consists of:
 
 	\begin{itemize}
 		
@@ -91,6 +93,15 @@ The Keysight Hackathon Dev Kit consists of:
 		\item Fedora Linux Virtual Machine image with Qt Creator and the Yocto SDK pre-installed and configured with Qt Creator
 		
 	\end{itemize}
+
+The general workflow for creating applications using the KHP is the application is created in the Qt Creator program that is pre-installed in the virtual machine image. The application is then cross-compiled by Qt Creator using the Yocto SDK and is then sent over WiFi to the Raspberry Pi where the application is run and can be debugged remotely using Qt Creator.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{pics/Deployment_Workflow.png}
+		\caption{Qt App Deployment Workflow}
+		\label{Qt_App_Deployment}
+	\end{figure}
 
 
 
@@ -107,7 +118,34 @@ The Keysight Hackathon Dev Kit consists of:
 %----------------------------------------------------------------------------------------
 \section{Import the Virtual Machine}
 
+After install VirtualBox, the next step is to import the virtual machine image into VirtualBox. After starting up VirtualBox, choose "Import Appliance..." from the file menu.
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{pics/VirtualBox_Import_Appliance.png}
+		\caption{Import Virtual Machine}
+		\label{Import_Virtual_Machine}
+	\end{figure}
+
+
+Navigate to the location of the virtual machine image (Qt\_Creator\_Fedora.ova) and then click next. In the next screen that appears (Appliance settings) make sure to click the checkbox to reinitialize the MAC addresses of all the network cards.
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.75]{pics/VirtualBox_Appliance_Settings.png}
+		\caption{Import Virtual Machine Settings}
+		\label{Import_Virtual_Machine_Settings}
+	\end{figure}
+
+After importing the virtual machine image, the main VirtualBox screen should appear similar to Figure \ref{VirtualBox_Main_Window}. To start the virtual machine, highlight the "Qt\_Creator\_Fedora" virtual machine from the list and then click the start button.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{pics/VirtualBox_Main_View.png}
+		\caption{VirtualBox Main Window}
+		\label{VirtualBox_Main_Window}
+	\end{figure}
 
 
 %----------------------------------------------------------------------------------------
