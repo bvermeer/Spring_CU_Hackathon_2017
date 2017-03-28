@@ -38,8 +38,6 @@
 
 \usepackage{multicol} % Multi-column support
 
-\usepackage{enumitem}
-
 %Add extra support for image placement
 \usepackage{float}
 
@@ -84,7 +82,7 @@ Company: & Keysight Technologies % Company
 %----------------------------------------------------------------------------------------
 \section{Overview}
 
-This document gives an overview of the available GPIO lines and interfaces. It also explains how these different interfaces can be enabled and used.
+This document gives a general hardware architecture overview of the Keysight Hacking Platform. A general hardware overview of the Raspberry Pi 3 and then a detailed description of how the touch-screen is connected to the Raspberry Pi 3 is given in the sections below.
 
 
 %----------------------------------------------------------------------------------------
@@ -114,6 +112,8 @@ This document gives an overview of the available GPIO lines and interfaces. It a
 			\item HDMI
 			\item Bluetooth 4.0
 			\item 802.11n Wireless LAN
+			\item Combination RCA Video / Audio jack
+			\item 40 Pin GPIO Connector
 		\end{itemize}
 	
 	\end{minipage}
@@ -130,6 +130,48 @@ This document gives an overview of the available GPIO lines and interfaces. It a
 %----------------------------------------------------------------------------------------
 \section{Raspberry Pi 3 Used GPIO Lines}
 
+This section explains with GPIO lines are used by the touchscreen and which GPIO lines are connected to the four push-buttons. The screen is driven by an SPI interface. The Raspberry Pi 3 contains three independent SPI bus drivers and in the case the screen is connect to SPI bus 0. The touch-screen is connect by an I2C bus to the Rapsberry Pi 3. The Raspberry Pi 3 has two I2C buses available on the GPIO header and both are used by the screen (I2C bus 0 is used by the configuration EEPROM and I2C bus 1 is used by the touchscreen). Figure \ref{Screen_Used_GPIO} shows the GPIO lines used by the touch-screen.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{pics/GPIO_Used_By_Screen.png}
+		\caption{GPIO Lines Used by the Screen}
+		\label{Screen_Used_GPIO}
+	\end{figure} 
+
+	\begin{table}
+		\centering
+		
+		\begin{tabular}[H]{| c | c |}
+			\hline
+			\textbf{Communication Bus} & \textbf{Used by} \\
+			\hline
+			I2C Bus 0 & Configuration EEPROM \\
+			\hline
+			I2C Bus 1 & Touch-screen \\
+			\hline
+			SPI Bus 0 & LCD Screen \\
+			\hline
+			SPI Bus 1 & nothing \\
+			\hline
+			SPI Bus 2 & nothing \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+
+The touch-screen also features four hardware push-buttons which are connected directly to GPIO lines are shown in the section of the touch-screen schematic shown in Figure \ref{Push_buttons_schematic}.
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.25\textwidth]{pics/PiTFT_2-8_push-buttons_section_schematic.png}
+		\caption{Screen Push-Buttons Schematic}
+		\label{Push_buttons_schematic}
+	\end{figure}
+
+
+In order to use the push-buttons, the GPIO lines connected to the push-buttons need to be configured as inputs and the internal pull-up resistors enabled (external pull-up resistors could alternative be used).
 
 
 
