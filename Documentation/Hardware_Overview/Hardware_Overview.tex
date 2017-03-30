@@ -90,6 +90,8 @@ This document gives a general hardware architecture overview of the Keysight Hac
 %----------------------------------------------------------------------------------------
 \section{Raspberry Pi 3 Block Diagram}
 
+At the heart of the Keysight Hacking Platform is a Raspberry Pi 3. The Raspberry Pi 3 is a general purpose embedded ARM Linux device. 
+
 	\begin{minipage}{0.5\textwidth}
 		
 		\includegraphics[width=0.95\textwidth]{pics/Raspberry-Pi-3_Block_Diagram.jpg}
@@ -130,7 +132,7 @@ This document gives a general hardware architecture overview of the Keysight Hac
 %----------------------------------------------------------------------------------------
 \section{Raspberry Pi 3 Used GPIO Lines}
 
-This section explains with GPIO lines are used by the touchscreen and which GPIO lines are connected to the four push-buttons. The screen is driven by an SPI interface. The Raspberry Pi 3 contains three independent SPI bus drivers and in the case the screen is connect to SPI bus 0. The touch-screen is connect by an I2C bus to the Rapsberry Pi 3. The Raspberry Pi 3 has two I2C buses available on the GPIO header and both are used by the screen (I2C bus 0 is used by the configuration EEPROM and I2C bus 1 is used by the touchscreen). Figure \ref{Screen_Used_GPIO} shows the GPIO lines used by the touch-screen.
+This section explains which GPIO lines are used by the touchscreen and which GPIO lines are connected to the four push-buttons. The LCD is driven by an SPI interface. The Raspberry Pi 3 contains three independent SPI bus drivers and in the case the screen is connect to SPI bus 0. The Raspberry Pi 3 has two I2C buses available on the GPIO header and both are used by the screen (I2C bus 0 is used by the configuration EEPROM and I2C bus 1 is used by the touchscreen). Figure \ref{Screen_Used_GPIO} shows the GPIO lines used by the touchscreen and the LCD.
 
 	\begin{figure}[H]
 		\centering
@@ -148,9 +150,9 @@ This section explains with GPIO lines are used by the touchscreen and which GPIO
 			\hline
 			I2C Bus 0 & Configuration EEPROM \\
 			\hline
-			I2C Bus 1 & Touch-screen \\
+			I2C Bus 1 & Touchscreen \\
 			\hline
-			SPI Bus 0 & LCD Screen \\
+			SPI Bus 0 & LCD \\
 			\hline
 			SPI Bus 1 & nothing \\
 			\hline
@@ -171,9 +173,38 @@ The touch-screen also features four hardware push-buttons which are connected di
 	\end{figure}
 
 
-In order to use the push-buttons, the GPIO lines connected to the push-buttons need to be configured as inputs and the internal pull-up resistors enabled (external pull-up resistors could alternative be used).
+In order to use the push-buttons, the GPIO lines connected to the push-buttons need to be configured as inputs and the internal pull-up resistors enabled (external pull-up resistors could alternatively be used). The push-buttons are connected to the GPIO lines on the Raspberry Pi 3 header as shown in Figure \ref{Push_buttons_GPIO}.
 
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{pics/PiTFT_2-8_Switches_GPIO.png}
+		\caption{GPIO Lines used by Push-Buttons}
+		\label{Push_buttons_GPIO}
+	\end{figure}
+
+
+It is also possible to figure out which push-button is connected to which GPIO line by looking at the silkscreen labels next to the push-buttons on the screen. Note: the numbers on the labels are the Broadcom pin numbers (BCM numbers) and not the physical pin numbers on the header!
+
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.65\textwidth]{pics/PiTFT_Plus_2_8_Overhead.jpg}
+		\caption{Push Button Labels}
+		\label{Push_Button_Labels}
+	\end{figure}
+
+
+In summary, Figure \ref{All_Used_GPIO} shows all the GPIO lines in use.
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{pics/All_Used_GPIO.png}
+		\caption{All Used GPIO}
+		\label{All_Used_GPIO}
+	\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	RPi 3 Available GPIO and Interfaces
