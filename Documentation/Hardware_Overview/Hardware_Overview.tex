@@ -51,6 +51,15 @@
 
 %\usepackage{times} % Uncomment to use the Times New Roman font
 
+% Setup how hyperlinks look
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black},
+}
+
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
@@ -82,7 +91,7 @@ Company: & Keysight Technologies % Company
 %----------------------------------------------------------------------------------------
 \section{Overview}
 
-This document gives a general hardware architecture overview of the Keysight Hacking Platform. A general hardware overview of the Raspberry Pi 3 and then a detailed description of how the touch-screen is connected to the Raspberry Pi 3 is given in the sections below.
+This document gives a general hardware architecture overview of the Keysight Hacking Platform (KHP), a general hardware overview of the Raspberry Pi 3 and a detailed description of how the touch-screen is connected to the Raspberry Pi 3.
 
 
 %----------------------------------------------------------------------------------------
@@ -132,7 +141,7 @@ At the heart of the Keysight Hacking Platform is a Raspberry Pi 3. The Raspberry
 %----------------------------------------------------------------------------------------
 \section{Raspberry Pi 3 Used GPIO Lines}
 
-This section explains which GPIO lines are used by the touchscreen and which GPIO lines are connected to the four push-buttons. The LCD is driven by an SPI interface. The Raspberry Pi 3 contains three independent SPI bus drivers and in the case the screen is connect to SPI bus 0. The Raspberry Pi 3 has two I2C buses available on the GPIO header and both are used by the screen (I2C bus 0 is used by the configuration EEPROM and I2C bus 1 is used by the touchscreen). Figure \ref{Screen_Used_GPIO} shows the GPIO lines used by the touchscreen and the LCD.
+This section explains which GPIO lines are used by the touchscreen and which GPIO lines are connected to the four push-buttons. The LCD is driven by a Serial Peripheral Interface (SPI) bus. The Raspberry Pi 3 contains three independent SPI bus drivers and in the case the screen is connected to SPI bus 0. The Raspberry Pi 3 has two I2C buses available on the GPIO header and both are used by the screen (I2C bus 0 is used by the configuration EEPROM and I2C bus 1 is used by the touchscreen). Figure \ref{Screen_Used_GPIO} shows the GPIO lines used by the touchscreen and the LCD.
 
 	\begin{figure}[H]
 		\centering
@@ -162,7 +171,7 @@ This section explains which GPIO lines are used by the touchscreen and which GPI
 	\end{table}
 
 
-The touch-screen also features four hardware push-buttons which are connected directly to GPIO lines are shown in the section of the touch-screen schematic shown in Figure \ref{Push_buttons_schematic}.
+The touch-screen also features four hardware push-buttons which are connected directly to GPIO lines as shown in the section of the touch-screen schematic shown in Figure \ref{Push_buttons_schematic}.
 
 
 	\begin{figure}[H]
