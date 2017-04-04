@@ -47,6 +47,15 @@
 
 \renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
 
+% Setup how hyperlinks look
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black},
+}
+
 %\usepackage{times} % Uncomment to use the Times New Roman font
 
 %----------------------------------------------------------------------------------------
@@ -82,7 +91,7 @@ Company: & Keysight Technologies % Company
 
 The Keysight Hacking Platform is designed to have a development workflow similar to how firmware is developed in most Keysight products while yet at the same time being flexible enough that students can develop their own software / hardware for a Hackathon. \\
 
-The Keysight Hacking Platform consists of:
+The KHP consists of:
 
 	\begin{itemize}
 		
@@ -94,7 +103,7 @@ The Keysight Hacking Platform consists of:
 		
 	\end{itemize}
 
-The general workflow for creating applications using the KHP is the application is created in the Qt Creator program that is pre-installed in the virtual machine image. The application is then cross-compiled by Qt Creator using the Yocto SDK and is then sent over WiFi to the Raspberry Pi where the application is run and can be debugged remotely using Qt Creator.
+The general workflow for creating applications using the KHP begins by creating the application in the Qt Creator program that is pre-installed in the virtual machine image. The application is then cross-compiled by Qt Creator using the Yocto SDK and is then sent over WiFi to the Raspberry Pi where the application is run and can be debugged remotely using Qt Creator.
 
 	\begin{figure}[H]
 		\centering
@@ -132,7 +141,7 @@ To be able to use the pre-setup virtual machine image you must first install Vir
 %----------------------------------------------------------------------------------------
 \section{Import the Virtual Machine}
 
-After install VirtualBox, the next step is to import the virtual machine image into VirtualBox. After starting up VirtualBox, choose \textbf{Import Appliance...} from the file menu.
+After installing VirtualBox, the next step is to import the virtual machine image into VirtualBox. After launching up VirtualBox, choose \textbf{Import Appliance...} from the file menu.
 
 	\begin{figure}[H]
 		\centering
@@ -178,7 +187,7 @@ After importing the virtual machine image, the main VirtualBox screen should app
 %----------------------------------------------------------------------------------------
 \section{Log into the Virtual Machine}
 
-After starting the virtual machine and waiting for it to boot, you will be presented with the login screen. Press enter and enter "keysight" for the password.
+After starting the virtual machine and waiting for it to boot, you will be presented with the login screen. Press \textbf{Enter} and enter "keysight" for the password.
 
 	\begin{figure}[H]
 		\centering
@@ -229,7 +238,7 @@ After entering the IP address, click the \textbf{Test Button} on the right to ma
 		\label{Device_Test_Dialog}
 	\end{figure}
 
-If the device passed the Raspberry Pi is connected to Qt Creator and ready for development. If it failed find a Keysight mentor and ask them to help setup Qt Creator.
+If the device passed the Raspberry Pi is connected to Qt Creator and ready for development. If it failed find a Keysight mentor and ask them to help you set up Qt Creator.
 
 %----------------------------------------------------------------------------------------
 %	APPENDIX
