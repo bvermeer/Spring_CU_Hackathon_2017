@@ -167,7 +167,7 @@ double mcp3008Spi::readChannelVoltage(uint8_t chanNum)
    rawADCVal |= (data[2] & 0xFF);
 
    // Convert the raw ADC value to a voltage using the provided value for vref
-   return (vref * (double)rawADCVal) / (double)(1024);
+   return (vref * (double)rawADCVal) / (double)(1023);
 }
 
 
