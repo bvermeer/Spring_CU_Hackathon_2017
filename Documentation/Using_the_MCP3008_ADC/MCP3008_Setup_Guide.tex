@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University/School Laboratory Report
+% LaTeX Template
+% Version 3.0 (4/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Linux and Unix Users Group at Virginia Tech Wiki 
+% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage[version=3]{mhchem} % Package for chemical equation typesetting
+\usepackage{siunitx} % Provides the \SI{}{} command for typesetting SI units
+
+\usepackage[top=1in, bottom=1in, right=1in, left=1in]{geometry}
+
+%Add code formating
+\usepackage{listings}
+\lstset{tabsize=2}
+
+\usepackage{hyperref}
+
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+
+\usepackage{multicol} % Multi-column support
+
+%Add extra support for image placement
+\usepackage{float}
+
+\usepackage{mcode}
+
+\usepackage{graphicx} % Required for the inclusion of images
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+% Setup how hyperlinks look
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black},
+}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{MCP3008 ADC Setup Guide} % Title
+
+\author{Blake \textsc{Vermeer}} % Author name
+
+\date{\today} % Date for the report
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+\begin{center}
+\begin{tabular}{l r}
+Date Performed: & April 6, 2017 \\ % Date the experiment was performed
+Company: & Keysight Technologies % Company
+\end{tabular}
+\end{center}
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	OVERVIEW
+%----------------------------------------------------------------------------------------
+\section{Overview}
+
+In this tutorial you will learn about the MCP3008 ADC and how to connect and use it with the Keysight Hacking Platform development kit.
+
+
+%----------------------------------------------------------------------------------------
+%	What is an ADC?
+%----------------------------------------------------------------------------------------
+\section{What is an ADC and why do I need it?}
+
+An Analog to Digital Converter (ADC) is a device that can measure an analog voltage and covert the measurement to a digital code that can be used by a microcontroller such as the Raspberry Pi. We need an external ADC to measure analog voltages since the Raspberry Pi does not have its own ADC built-in.
+
+
+%----------------------------------------------------------------------------------------
+%	APPENDIX
+%----------------------------------------------------------------------------------------
+
+%\newpage
+%\section{Appendix}
+
+%\begin{enumerate}
+
+	
+%	\item[1. a.)] \lstinputlisting{../MATLAB/problem_1a.m}
+	
+
+%\end{enumerate}
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
