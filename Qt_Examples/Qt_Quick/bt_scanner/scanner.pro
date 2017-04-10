@@ -14,5 +14,5 @@ OTHER_FILES += \
 
 #DEFINES += QMLJSDEBUGGER
 
-target.path = $$[QT_INSTALL_EXAMPLES]/bluetooth/scanner
+target.path = /home/keysight/bin
 INSTALLS += target
