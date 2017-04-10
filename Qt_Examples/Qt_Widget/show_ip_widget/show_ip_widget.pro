@@ -22,7 +22,7 @@ FORMS    += mainwindow.ui
 DISTFILES +=
 
 # Target install path
-target.path = /home/keysight/bin
+target.path = /usr/bin
 INSTALLS += target
 
 RESOURCES += \
