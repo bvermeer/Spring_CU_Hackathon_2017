@@ -433,14 +433,17 @@
     <property name="geometry">
      <rect>
       <x>-1</x>
-      <y>-1</y>
+      <y>9</y>
       <width>321</width>
-      <height>241</height>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QCheckBox" name="button1_checkBox">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
        <property name="text">
         <string>Button 1</string>
        </property>
@@ -451,6 +454,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="button2_checkBox">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
        <property name="text">
         <string>Button 2</string>
        </property>
@@ -461,6 +467,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="button3_checkBox">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
        <property name="text">
         <string>Button 3</string>
        </property>
@@ -471,6 +480,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="button4_checkBox">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
        <property name="text">
         <string>Button 4</string>
        </property>

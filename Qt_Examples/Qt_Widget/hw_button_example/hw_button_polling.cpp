@@ -33,11 +33,10 @@ void hw_button_polling::checkButtons()
 {
     // myOut() << "Entered the button polling loop!";
 
-    keys[1] = gpio.gpioRead(27);
-    keys[2] = gpio.gpioRead(23);
-    keys[3] = gpio.gpioRead(22);
-    keys[4] = gpio.gpioRead(17);
-
+    keys[1] = gpio.gpioRead(17);
+    keys[2] = gpio.gpioRead(22);
+    keys[3] = gpio.gpioRead(23);
+    keys[4] = gpio.gpioRead(27);
 
     emit button_1_Changed(!keys[1]);
     emit button_2_Changed(!keys[2]);
