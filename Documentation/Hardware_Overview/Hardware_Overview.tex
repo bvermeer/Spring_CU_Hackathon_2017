@@ -165,8 +165,6 @@ This section explains which GPIO lines are used by the touchscreen and which GPI
 			\hline
 			SPI Bus 1 & nothing \\
 			\hline
-			SPI Bus 2 & nothing \\
-			\hline
 		\end{tabular}
 	\end{table}
 
@@ -193,7 +191,7 @@ In order to use the push-buttons, the GPIO lines connected to the push-buttons n
 	\end{figure}
 
 
-It is also possible to figure out which push-button is connected to which GPIO line by looking at the silkscreen labels next to the push-buttons on the screen. Note: the numbers on the labels are the Broadcom pin numbers (BCM numbers) and not the physical pin numbers on the header!
+It is also possible to figure out which push-button is connected to which GPIO line by looking at the silkscreen labels next to the push-buttons on the screen. Note: the numbers on the labels are the Broadcom pin numbers (BCM numbers) and not the physical pin numbers!
 
 
 
@@ -220,7 +218,18 @@ In summary, Figure \ref{All_Used_GPIO} shows all the GPIO lines in use.
 %----------------------------------------------------------------------------------------
 \section{Raspberry Pi 3 Available GPIO and Interfaces}
 
+After accounting for the pins used by the LCD screen, touchscreen, and hardware buttons there are 13 GPIO lines left unused (17 it you don't need to use the HW buttons). These unused GPIO lines can be used as general input pins or outputs (hence the name GPIO - General Purpose Input Output). To use the extra GPIO lines, the wiringPi library can be used or the \textbf{tiny\_gpio} class in the \textbf{hw\_button\_example} program. \\
 
+Also, SPI bus 1 is unused and can be used to communicate with external SPI devices such as the MCP3008 ADC. For more information on how to use the MCP3008 ADC refer to the \textbf{Using\_the\_MCP3008\_ADC} document. \\
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{pics/SPI_Bus1_CS0.png}
+		\caption{Raspberry Pi 3, SPI Bus 1}
+		\label{SPI_Bus1}
+	\end{figure}
+
+It should be noted that all the GPIO lines on the Raspberry Pi 3 are 3.3V lines and are \textcolor{red}{\textbf{NOT}} 5V tolerant!
 
 
 %----------------------------------------------------------------------------------------
